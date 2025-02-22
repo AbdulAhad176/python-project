@@ -1,0 +1,22 @@
+import random  
+
+
+number = random.randint(1, 10)
+
+print("Guess the number between 1 and 10!")
+
+while True:
+    guess = input("Enter your guess: ")
+
+    if guess.isdigit():  
+        guess = int(guess)
+
+        if guess < number:
+            print("Too low! Try again.")
+        elif guess > number:
+            print("Too high! Try again.")
+        else:
+            print("Congratulations! You guessed the number.")
+            break 
+    else:
+        print("Invalid input! Please enter a number.")

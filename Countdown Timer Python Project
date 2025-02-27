@@ -1,0 +1,11 @@
+import time
+
+
+countdown_time = int(input("Enter the time in seconds: "))
+
+while countdown_time > 0:
+    print(countdown_time)
+    time.sleep(1)
+    countdown_time -= 1
+
+print("Time's up!")

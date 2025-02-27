@@ -1,0 +1,37 @@
+import random
+
+def hangman():
+    words = ['apple', 'banana', 'cherry', 'grape', 'orange']
+    word = random.choice(words)
+    guessed_word = ['_'] * len(word)
+    chances = 6
+
+    print("Welcome to Hangman!")
+
+    while chances > 0:
+        print("\nCurrent word: " + " ".join(guessed_word))
+        print("You have " + str(chances) + " chances left.")
+
+        guess = input("Guess a letter: ").lower()
+
+        if len(guess) != 1 or not guess.isalpha():
+            print("Please enter only one letter!")
+            continue
+
+        if guess in word:
+            for i in range(len(word)):
+                if word[i] == guess:
+                    guessed_word[i] = guess
+            print("Good guess!")
+        else:
+            chances -= 1
+            print("Wrong guess! You lost one chance.")
+        
+        if "_" not in guessed_word:
+            print("\nCongratulations! You guessed the word:", word)
+            break
+
+    if chances == 0:
+        print("\nGame Over! The word was:", word)
+
+hangman()
